@@ -9,12 +9,12 @@ typedef struct _Node {
 }Node;
 
 Node* head, * endd;
-Node* temp1, *temp2, * temp_In;
-int top=0;
+Node* temp1, * temp2, * temp_In;
+int top = 0;
 
 template< class T>
-void init(T n,T n1) {
-	
+void init(T n, T n1) {
+
 	head = new Node;
 	head->Next = NULL;
 	endd = new Node;
@@ -29,7 +29,7 @@ void init(T n,T n1) {
 	temp1->Next = temp2;
 	temp2->Next = endd;
 	temp2->data = n1;
-	top=2;
+	top = 2;
 }
 
 void Insert() {
@@ -51,6 +51,26 @@ void Insert() {
 	pt->Next = temp_In;
 
 }
+int deletef() {
+	string  c;
+	cout << "Delete Str : ";
+	cin >> c;
+	Node* ptr;
+	Node* deleteptr;
+	for (ptr = head; ptr->Next != endd; ptr = ptr->Next) {
+		if (c == ptr->Next->data) {
+			deleteptr = ptr->Next;
+			ptr->Next = ptr->Next->Next;
+			delete deleteptr;
+			break;
+		}
+		if (ptr->Next->Next == endd)
+			return -1;
+	}
+
+	top--;
+	return 0;
+}
 
 int main() {
 	int i = 0;
@@ -71,12 +91,25 @@ int main() {
 		cout << ptr->data << endl;
 		ptr = ptr->Next;
 	}
-	
+
 	Insert();
 
 	ptr = head->Next;
-	for(int i=0; i<top; i++){
+	for (int i = 0; i < top; i++) {
 		cout << ptr->data << endl;
 		ptr = ptr->Next;
+	}
+
+	if (deletef() == -1) {
+		cout << "삭제하실 정보가 없습니다." << endl;
+	}
+	else {
+
+		cout << "삭제가 완료하였습니다." << endl;
+		ptr = head->Next;
+		for (int i = 0; i < top; i++) {
+			cout << ptr->data << endl;
+			ptr = ptr->Next;
+		}
 	}
 }

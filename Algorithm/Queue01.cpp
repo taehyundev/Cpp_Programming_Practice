@@ -61,7 +61,7 @@ int Queue::sizeF() {
 bool Queue::Empty() {
 	return size < 1 ? 0 : 1;
 }
-
+ 
 int main() {
 	Queue q;
 	q.push(4);

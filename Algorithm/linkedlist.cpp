@@ -32,7 +32,7 @@ void init(T n, T n1) {
 	temp2->data = n1;
 	top = 2;
 }
-
+ 
 void Insert() {
 	string c;
 	cout << "Add Str : ";

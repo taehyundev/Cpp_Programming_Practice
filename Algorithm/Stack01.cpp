@@ -31,7 +31,7 @@ void Stack::push(int val) {
 //pop Function
 int Stack::pop() {
 	if (Top >= 0)	{Size--; }
-	return Top < 0 ? -1: data[Top--];
+	return Top < 0 ? -1: data[Top--]; 
 }
 //Top Display
 int Stack::topF() {
